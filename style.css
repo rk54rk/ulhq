@@ -1,0 +1,54 @@
+/*
+Theme Name: ulhq
+Theme URI: http://underscores.me/
+Author: Underscores.me
+Author URI: http://underscores.me/
+Description: Description
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: ul
+Tags:
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+ul is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc.
+*/
+
+/*overall*/
+#colophon{text-align:center;}
+#content{padding-top:100px}
+
+/*typography*/
+body, html{font-family: 'Trocchi', serif;background-color:#EEE}
+h1, h2, h3, h4, h5, h6{font-weight:normal;color:#444;line-height: 1.2em;}
+#bbpress-forums{font-family:'Arial', sans-serif}
+/*navbar*/
+
+.navbar span, p{font-size:18px;font-weight:normal;color:#444;}
+.navbar a{color:#444;font-size:18px;}
+
+.navbar-top{height:60px;min-height:50px;background-color:#EEE;;border-bottom:none;padding-top:25px}
+.navbar a{color:#444;}
+ul.navbar-right{list-style:none;}
+ul.navbar-right li{margin-left:20px;}
+ul.navbar-right>li>a{color:#444!important;}
+
+.navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:focus, .navbar-default .navbar-nav > .open > a:hover{background-color:transparent;}
+
+.navbar-block a{padding:0px!important;border-bottom:2px solid #444;}
+.navbar-block a:hover, .navbar-block a:focus{text-decoration: none; padding:0;}
+
+.dropdown.open .dropdown-toggle span{color:#EEE;}
+.dropdown.open a.dropdown-toggle.with-border {border:2px solid #EEE!important;}
+
+/*navbar menu items*/
+.navbar-nav .dropdown-menu{position:absolute;z-index:-10;margin-left:15px;margin-top:0;top:-19px;border:none;background-color:#444;text-align:left;box-shadow: none;padding:101px 30px 30px 0px!important;border-radius:0;min-width:230px}
+.navbar-nav .dropdown-menu li a{color:#EEE;padding:0;border-bottom:2px solid #EEE;}
+.navbar .dropdown-menu li{margin-left:15px}
+.navbar .dropdown-menu a:hover{background-color:#333;}
+
+
+/*bbPress forums*/  
+.home #bbp-search-form{display:none;}
