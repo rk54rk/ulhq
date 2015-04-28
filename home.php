@@ -19,7 +19,21 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
         <div class="col-sm-6">
-            <h4>Dear sir/madamn <?php global $current_user;get_currentuserinfo();echo $current_user->user_lastname; ?>, welcome back to the headquaters of the Unlimited Ltd. Today is <?php echo date('j F Y'); ?>, a good day to do business as it always is. </h4>
+            <h4>Dear <?php 
+
+                    echo bp_get_profile_field_data( array(
+                        'field'   => 'Title',
+                        'user_id' => bp_loggedin_user_id()
+                    ));
+                    
+                    echo '. ';
+
+                    global $current_user;
+                    get_currentuserinfo();
+                    echo $current_user->user_lastname; 
+
+                    echo ',';
+                ?> welcome back to the headquaters of the Unlimited Ltd. Today is <?php echo date('j F Y'); ?>, a good day to do business as it always is. </h4>
         </div>
         
         <div class="col-sm-6">
@@ -31,18 +45,46 @@ get_header(); ?>
             <h3 style="margin-top:0;border-top:1px solid #444">Financial summary</h3>
         </div>
         <div class="col-sm-4" style="padding-top:15px">
-            The company as of now worth:
-            <h2 style="margin-top:0;border-bottom:1px solid #444">120.00</h2>
+            The company today worth:
+            <h2 style="margin-top:0;border-bottom:1px solid #444">
+                <?php 
+
+                    if( function_exists( 'ulplus_init' ) ) {
+                        $total_value = ul_get_company_worth(); 
+                        echo '£'.$total_value;
+                    } else {
+                        echo 'Ulplus is not active.';
+                    }
+
+                ?>
+            </h2>
         </div>
         
         <div class="col-sm-4" style="padding-top:15px">
             Total number of Business Associates:
-            <h2 style="margin-top:0;border-bottom:1px solid #444">12</h2>
+            <h2 style="margin-top:0;border-bottom:1px solid #444">
+                <?php
+                    $result = count_users();
+                    $subscriber_count = $result["avail_roles"]["subscriber"];
+                    echo $subscriber_count;
+                ?>
+            </h2>
         </div>
         
         <div class="col-sm-4" style="padding-top:15px">
             Your share of the company worth:
-            <h2 style="margin-top:0;border-bottom:1px solid #444">10.00</h2>
+            <h2 style="margin-top:0;border-bottom:1px solid #444">
+                <?php 
+
+                    if( function_exists( 'ulplus_init' ) ) {
+                        $share_value = ($total_value / $subscriber_count);
+                        echo '£' . number_format((float)$share_value, 2, '.', '');
+                    } else {
+                        echo 'Ulplus is not active.';
+                    }
+
+                ?>
+            </h2>
         </div>
         
         <div class="col-sm-12" style="margin-top:30px">
