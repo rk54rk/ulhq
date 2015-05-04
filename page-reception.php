@@ -37,14 +37,15 @@ get_header(); ?>
         
         <div class="col-sm-6" style="padding-top:30px">
             <h3 style="margin-top:0;border-top:1px solid #444">Sign up as a shareholder.</h3>
+            <p>Owning a share of the Unlimited Limited doensn't mean you can get some cash immediately, but you will have a say in how to use the money the company has.</p>
             <a href="/signup">Sign up</a>
         </div>
         
         
         <div class="col-sm-6" style="padding-top:30px">
-            <h3 style="margin-top:0;border-top:1px solid #444">Executive sign in</h3>
+            <h3 style="margin-top:0;border-top:1px solid #444">Shareholder sign in</h3>
             
-            <div class="login" style="padding-top:30px">
+            <div class="login">
                   <?php  
                     $args = array(  
                         'redirect' => home_url(),   

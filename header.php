@@ -44,9 +44,8 @@
                   </a>
                     
                   <ul class="dropdown-menu" role="menu">
-                    <li><a href="#" onclick="home_autoscroll()">About</a></li>
-                    <li><a href="<?php echo site_url( '/buy', 'http' ); ?>">Buy an ad</a></li>
-                    <li><a href="#">Join the company</a></li>
+                    <li><a href="http://unlimitedltd.co/buy">Buy an ad</a></li>
+                    <li><a href="<?php echo site_url( '/signup', 'http' ); ?>">Join the company</a></li>
                     <li><a href="#">Boardroom</a></li>
                   </ul>
                 </li>

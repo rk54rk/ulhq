@@ -18,7 +18,7 @@ ul is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc
 
 /*overall*/
 #colophon{text-align:center;}
-#content{padding-top:100px}
+#content{padding-top:100px;margin-bottom:30px;}
 
 a{color:#444;border-bottom: 1px solid #444}
 a:hover, a:focus{color:#444;text-decoration:none;border-bottom:none;color:#000;}
@@ -26,7 +26,7 @@ a:hover, a:focus{color:#444;text-decoration:none;border-bottom:none;color:#000;}
 /*typography*/
 
 body, html{font-family: 'Trocchi', serif;background-color:#EEE;font-weight:normal;color:#444;}
-p, h1, h2, h3, h4, h5, h6{line-height: 1.2em;}
+p, h1, h2, h3, h4, h5, h6{line-height: 1.4em;}
 p {font-size:14px;line-height:1.4em}
 /*navbar*/
 
@@ -51,6 +51,14 @@ ul.navbar-right>li>a{color:#444!important;}
 .navbar-nav .dropdown-menu li a{color:#EEE;padding:0;border-bottom:2px solid #EEE;}
 .navbar .dropdown-menu li{margin-left:15px}
 .navbar .dropdown-menu a:hover{background-color:#333;}
+
+
+/*ulhq specific*/
+.login label{display:block;}
+.field-visibility-settings-notoggle{display:none;}
+
+/*buddypress*/
+.bp_register .entry-title{display:none;}
 
 
 /*bbPress forums*/  
