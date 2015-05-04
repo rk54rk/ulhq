@@ -18,7 +18,9 @@
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/inc/bootstrap.min.css">
 <!-- Google fonts -->
 <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
-    
+<!-- UL pictograms font -->
+<link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/inc/fonts/ul_pictograms/css/ul_pictograms.css">
+
 <?php wp_head(); ?>
 </head>
 

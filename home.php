@@ -19,7 +19,7 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
         <div class="col-sm-6">
-            <h4>Dear <?php 
+            <p>Dear <?php 
 
                     echo bp_get_profile_field_data( array(
                         'field'   => 'Title',
@@ -33,10 +33,20 @@ get_header(); ?>
                     echo $current_user->user_lastname; 
 
                     echo ',';
-                ?> welcome back to the headquaters of the Unlimited Ltd. Today is <?php echo date('j F Y'); ?>, a good day to do business as it always is. </h4>
+                ?> welcome back to the headquaters of the Unlimited Ltd. Today is <?php echo date('j F Y'); ?>, a good day to do business as it always is. </p>
         </div>
         
-        <div class="col-sm-6">
+        <div class="col-sm-4 col-sm-offset-2" style="text-align:left">
+            <p>
+                <a target='_blank' href="<?php bloginfo('template_directory'); ?>/parts/ul-pdf/ul_share_certificate.php">
+                    <i class="icon-award" style="margin-left:-2px"></i>Download share certificate</a><br>
+                <a target='_blank' href="<?php bloginfo('template_directory'); ?>/parts/ul-pdf/ul_business_card.php">
+                    <i class="icon-vcard" style="margin-left:-2px"></i>Download my business card</a><br>
+                <a target='_blank' href="">
+                    <i class="icon-doc-text" style="margin-left:-2px"></i>Download letterhead
+                </a>
+            </p>
+            
         </div>
     </div>
     
@@ -61,7 +71,7 @@ get_header(); ?>
         </div>
         
         <div class="col-sm-4" style="padding-top:15px">
-            Total number of Business Associates:
+            Total number of shareholders:
             <h2 style="margin-top:0;border-bottom:1px solid #444">
                 <?php
                     $result = count_users();
@@ -72,7 +82,7 @@ get_header(); ?>
         </div>
         
         <div class="col-sm-4" style="padding-top:15px">
-            Your share of the company worth:
+            Your share of the company:
             <h2 style="margin-top:0;border-bottom:1px solid #444">
                 <?php 
 
