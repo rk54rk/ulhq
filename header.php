@@ -20,7 +20,9 @@
 <link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
 <!-- UL pictograms font -->
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/inc/fonts/ul_pictograms/css/ul_pictograms.css">
-
+<!-- Favicon -->
+<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/favicon.png" />
+    
 <?php wp_head(); ?>
 </head>
 

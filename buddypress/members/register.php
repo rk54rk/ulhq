@@ -3,13 +3,13 @@
 <div class="col-sm-6" style="padding-right:100px;">
 <h2 style="margin-top:-4px">Sign up as a shareholder</h2>
 
-<h4>Owning a share of the Unlimited Limited doensn't mean you can get some cash immediately, but you will have a say in how to use the money the company has.</h4>
+<h4>Owning a share of the Unlimited Limited does not mean you can get cash immediately, but you will be able to propose and vote on how to use the money the company has, in future ventures.</h4>
     
 <img style="width:100%" src="<?php bloginfo('template_directory'); ?>/assets/signup/sign-up_share-certificate.jpg"></img>
 
-<h4>After sucessfully signing up, you will get a Share Certificate that proves you own one share of the Unlimited Limited. You will also be appointed as a Business Executive, your company business card and letterhead will be prepared for you to do some real business.</h4>
+<h5>After sucessfully signing up, you will get a Share Certificate that proves you own one share of the Unlimited Limited. You will also be appointed as a Business Executive, your company business card and letterhead will be prepared for you to do some real business.</h5>
 
-<h4>Our Articles of Association is under written. Join now to take a part.</h4>
+<h5>Our Articles of Association is under written. Join now to take a part.</h5>
 
 </div>
 
