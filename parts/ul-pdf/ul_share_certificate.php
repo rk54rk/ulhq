@@ -31,7 +31,7 @@ $pdf = new TCPDF($pageOrientation, 'mm', $pageSize, true, 'UTF-8', false);
 // set document information
 $pdf->SetCreator('Unlimited Limited');
 $pdf->SetAuthor('Unlimited Limited');
-$pdf->SetTitle('Business card');
+$pdf->SetTitle('Share Certificate to '.$current_user->display_name);
 
 // remove default header/footer
 $pdf->setPrintHeader(false);
@@ -67,7 +67,7 @@ $auto_page_break = $pdf->getAutoPageBreak();
 // disable auto-page-break
 $pdf->SetAutoPageBreak(false, 0);
 // set bacground image
-$img_file = 'ul_share_certificate_template.jpg';
+$img_file = 'ul_share_certificate.png';
 $pdf->Image($img_file, 0, 0, 297, 210, '', '', '', false, 300, '', false, false, 0);
 // restore auto-page-break status
 $pdf->SetAutoPageBreak($auto_page_break, $bMargin);
@@ -79,39 +79,42 @@ $pdf->SetFont('trocchi', '', 12);
 
 // Write the shareholder details
 $html = 
-    '<div style="text-align:center">This certificates<br><br>'
+    '<div style="text-align:center">THIS CERTIFICATES<br><br>'
     .$title.' '.$current_user->display_name.'<br><br>'
     .$address.'<br><br>'
-    .'owns one share of the Unlimited Limited.</div>';
+    .'OWNS EXACT ONE SHARE OF<br>THE UNLIMITED LIMITED.<><br></div>';
 
-// set color for text
-$pdf->SetTextColor(24, 24, 24);
+// set color for text #444
+$pdf->SetTextColor(68, 68, 68);
 
 //w, h, x, y, html
-$pdf->writeHTMLCell(99, '', 99, 20, $html, 0, 0, 0, true, 'J', true);
+$pdf->writeHTMLCell(99, '', 99, 75, $html, 0, 0, 0, true, 'J', true);
 
 // Write the certificate ID
-$html = '<div style="text-align:center">No.<br>'.bp_loggedin_user_id().'</div>';
+$html = '<div style="text-align:center">NUMBER<br>'.bp_loggedin_user_id().'</div>';
 
-// set color for text
-$pdf->SetTextColor(24, 24, 24);
+// set color for text #444
+$pdf->SetTextColor(68, 68, 68);
 
 //w, h, x, y, html
-$pdf->writeHTMLCell(20, 20, 260, 176, $html, 0, 0, 0, true, 'J', true);
+$pdf->writeHTMLCell(25, 25, 25, 173, $html, 0, 0, 0, true, 'J', true);
 
 
 
 // Render QR code
 require_once(dirname(__FILE__).'/tcpdf_min/tcpdf_barcodes_2d.php');
 
-// set the barcode content and type
-$barcodeobj = new TCPDF2DBarcode(bp_loggedin_user_id(), 'QRCODE,H');
+$style = array(
+	'border' => false,
+	'vpadding' => 5,
+	'hpadding' => 5,
+	'fgcolor' => array(68,68,68),
+	'bgcolor' => array(255,255,255), //array(255,255,255)
+	'module_width' => 1, // width of a single module in points
+	'module_height' => 1 // height of a single module in points
+);
 
-$pdf->write2DBarcode('www.tcpdf.org', 'QRCODE,H', 20, 173, 20, 20, $style, 'N');
-
-
-// render logo
-$pdf->ImageEps('ul_logo_share-certificate.eps', 120, 185, 60, '', 'http://unlimitedltd.co', true, '', '', 0, false);
+$pdf->write2DBarcode( bp_loggedin_user_domain() , 'QRCODE,Q', 65, 170, 25, 25, $style, 'H');
 
 //Close and output PDF document
-$pdf->Output('ul_share-certificate_rongkai-he.pdf', 'I');
+$pdf->Output('ul_share-certificate_id'.bp_loggedin_user_id().'.pdf', 'I');

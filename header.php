@@ -17,7 +17,8 @@
 <!-- Bootstrap from CDN -->
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/inc/bootstrap.min.css">
 <!-- Google fonts -->
-<link href='http://fonts.googleapis.com/css?family=Trocchi' rel='stylesheet' type='text/css'>
+<link href='<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/trocchi/stylesheet.css' rel='stylesheet' type='text/css'>
+<link href='<?php echo get_stylesheet_directory_uri(); ?>/assets/fonts/texgyreheros/stylesheet.css' rel='stylesheet' type='text/css'>
 <!-- UL pictograms font -->
 <link rel="stylesheet" href="<?php bloginfo('template_directory'); ?>/inc/fonts/ul_pictograms/css/ul_pictograms.css">
 <!-- Favicon -->
@@ -30,7 +31,7 @@
 <div id="page" class="hfeed site">
 
 	<header id="masthead" class="site-header" role="banner">        
-        <nav class="navbar-top navbar navbar-default navbar-fixed-top" style="z-index:9999;">
+        <nav class="navbar-top navbar navbar-default navbar-static-top" style="z-index:9999;">
           <div class="container">
             <div class="navbar-header navbar-block">
 			  <a href="http://unlimitedltd.co"><?php bloginfo( 'name' ); ?></a>
