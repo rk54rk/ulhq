@@ -37,9 +37,9 @@
 			  <a href="http://unlimitedltd.co"><?php bloginfo( 'name' ); ?></a>
             </div>
               
-            <span class="nav navbar-nav navbar-left navbar-block" style="margin-left:15px;"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Headquarters</a></span>
+            <span class="nav navbar-nav navbar-left navbar-block" style="margin-left:15px;"><a class="ulhq-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">Headquarters</a></span>
               
-            <ul class="nav navbar-nav navbar-left">
+            <ul id="navbar-menu" class="nav navbar-nav navbar-left">
                 <li class="dropdown">
                     
                   <a href="#" class="dropdown-toggle with-border" data-toggle="dropdown" role="button" style="border:2px solid #444;padding:3px 6px;margin-top:-3px;margin-left:30px;" aria-expanded="false">

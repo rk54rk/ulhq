@@ -13,7 +13,7 @@
   
   <li id="menu-item-user" class="menu-item menu-item-has-children dropdown">
   
-      <a title="<?php echo $current_user->display_name; ?>" href="#" data-toggle="dropdown" class="dropdown-toggle" style="padding:3px 6px;margin-top:1px;margin-left:30px;"><span><?php bp_loggedin_user_avatar( 'width=' . 20 . '&height=' . 20 ); ?> <?php echo $current_user->display_name; ?>&nbsp;<span class="badge"><?php if($noti_counts['total']!=0){echo $noti_counts['total'];} ?></span></span></a>
+    <a title="<?php echo $current_user->display_name; ?>" href="#" data-toggle="dropdown" class="dropdown-toggle" style="padding:3px 6px;margin-top:1px;margin-left:30px;"><span><?php bp_loggedin_user_avatar( 'width=' . 20 . '&height=' . 20 ); ?> <span class="navbar-username"><?php echo $current_user->display_name; ?></span>&nbsp;<span class="badge"><?php if($noti_counts['total']!=0){echo $noti_counts['total'];} ?></span></span></a>
   
     <ul role="menu" class=" dropdown-menu">
 

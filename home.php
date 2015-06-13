@@ -19,7 +19,7 @@ get_header(); ?>
 <div class="container">
 	<div class="row">
         <div class="col-sm-6">
-            <p>Dear <?php 
+            <h4>Dear <?php 
 
                     echo bp_get_profile_field_data( array(
                         'field'   => 'Title',
@@ -33,7 +33,7 @@ get_header(); ?>
                     echo $current_user->user_lastname; 
 
                     echo ',';
-                ?> welcome back to the headquaters of the Unlimited Ltd. Today is <?php echo date('j F Y'); ?>, a good day to do business as it always is. </p>
+                ?> welcome back to the headquaters of the Unlimited Ltd. Today is <?php echo date('j F Y'); ?>, a good day to do business as usual. </h4>
         </div>
         
         <div class="col-sm-4 col-sm-offset-2" style="text-align:left">
@@ -49,14 +49,17 @@ get_header(); ?>
             
         </div>
     </div>
-    
-	<div class="row">
+</div>
+
+<div id="to-bottom" class="container-fluid" style="margin-top:30px;background-color:white;box-shadow: 4px 0px 36px rgba(0,0,0,0.3);">
+  <div class="container">
+      <div class="row">
         <div class="col-sm-12" style="padding-top:30px">
-            <h3 style="margin-top:0;border-top:1px solid #444">Financial summary</h3>
+            <h3 style="margin-top:0;">Financial summary</h3>
         </div>
         <div class="col-sm-4" style="padding-top:15px">
             The company today worth:
-            <h2 style="margin-top:0;border-bottom:1px solid #444">
+            <h2 style="margin-top:0;">
                 <?php 
 
                     if( function_exists( 'ulplus_init' ) ) {
@@ -72,7 +75,7 @@ get_header(); ?>
         
         <div class="col-sm-4" style="padding-top:15px">
             Total number of shareholders:
-            <h2 style="margin-top:0;border-bottom:1px solid #444">
+            <h2 style="margin-top:0;">
                 <?php
                     $result = count_users();
                     $subscriber_count = $result["avail_roles"]["subscriber"];
@@ -83,7 +86,7 @@ get_header(); ?>
         
         <div class="col-sm-4" style="padding-top:15px">
             Your share of the company:
-            <h2 style="margin-top:0;border-bottom:1px solid #444">
+            <h2 style="margin-top:0;">
                 <?php 
 
                     if( function_exists( 'ulplus_init' ) ) {
@@ -100,6 +103,25 @@ get_header(); ?>
         <div class="col-sm-12" style="margin-top:30px">
             <?php echo do_shortcode( '[bbp-forum-index]' )?>
         </div>       
+      </div>
+    </div>
+
+      <script>
+        var originalHeight = jQuery('#to-bottom').height();
+        extendDivToBottom();
         
-    </div>  
-</div>
+        jQuery( window ).resize(function() {
+          extendDivToBottom();
+        });
+                             
+        function extendDivToBottom(){
+          //get the div to page bottom
+          jQuery('#to-bottom').css("height", '9999px');
+          var newHeight = 9999 - (jQuery(document).height() - jQuery(window).height());
+          if(newHeight > originalHeight){
+            jQuery('#to-bottom').css("height", newHeight);
+          } else {
+            jQuery('#to-bottom').css("height", originalHeight);
+          }
+        }
+      </script>

@@ -16,13 +16,16 @@ get_header(); ?>
     
     <div class="row">
         <div class="col-sm-6">
-            <h4>Welcome to the headquarters of the Unlimited Ltd, here is where the shareholders of the Unlimited Limited decide what the next move of the company is. You can sign in if you are already a shareholder, or sign up for free.</h4>
+            <h4>Welcome to the headquarters of the Unlimited Ltd, here is where the shareholders of the Unlimited Limited decide what the next move of the company is. You can sign in if you are already a shareholder, or <a href="/signup">sign up</a> for free.</h4>
         </div>
         
         <div class="col-sm-6">
         </div>
     </div>
-    
+</div>
+
+<div class="container-fluid" style="margin-top:30px;padding-bottom:100px;margin-bottom:0;background-color:white;box-shadow:4px 0px 36px rgba(0,0,0,0.3);">
+  <div class="container">
 	<div class="row">
         	<?php 
             $login  = (isset($_GET['login']) ) ? $_GET['login'] : 0;  
@@ -33,17 +36,9 @@ get_header(); ?>
         } elseif ( $login === "false" ) {  
             echo '<p class="login-msg"><strong>ERROR:</strong> You are logged out.</p>';  
         }  ?>
-        
-        
-        <div class="col-sm-6" style="padding-top:30px">
-            <h3 style="margin-top:0;border-top:1px solid #444">Sign up as a shareholder</h3>
-            <p>Owning a share of the Unlimited Limited doensn't mean you can get some cash immediately, but you will have a say in how to use the money the company has.</p>
-            <a href="/signup">Sign up</a>
-        </div>
-        
-        
-        <div class="col-sm-6" style="padding-top:30px">
-            <h3 style="margin-top:0;border-top:1px solid #444">Shareholder sign in</h3>
+
+        <div id="to-bottom" class="col-sm-4 col-sm-offset-0" style="padding-top:30px">
+            <h3 style="margin-top:0;">Shareholder sign in</h3>
             
             <div class="login">
                   <?php  
@@ -59,5 +54,25 @@ get_header(); ?>
                 </a>
             </div>
         </div>
+      <script>
+        var originalHeight = jQuery('#to-bottom').height();
+        extendDivToBottom();
+        
+        jQuery( window ).resize(function() {
+          extendDivToBottom();
+        });
+                             
+        function extendDivToBottom(){
+          //get the div to page bottom
+          jQuery('#to-bottom').css("height", '9999px');
+          var newHeight = 9999 - (jQuery(document).height() - jQuery(window).height());
+          if(newHeight > originalHeight){
+            jQuery('#to-bottom').css("height", newHeight);
+          } else {
+            jQuery('#to-bottom').css("height", originalHeight);
+          }
+        }
+      </script>
     </div>  
+  </div>
 </div>

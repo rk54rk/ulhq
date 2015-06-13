@@ -18,14 +18,14 @@ ul is based on Underscores http://underscores.me/, (C) 2012-2015 Automattic, Inc
 
 /*overall*/
 #colophon{text-align:center;}
-#content{padding-top:50px;margin-bottom:30px;}
+#content{padding-top:50px;}
 
 a{color:#000;border-bottom: 1px solid #000}
 a:hover, a:focus{color:#000;text-decoration:none;border-bottom:none;color:#000;}
 
 /*typography*/
 
-body, html{font-family: 'Trocchi_ulregular', serif;background-color:#EEE;font-weight:normal;color:#000;background-image: url("assets/marble3.png");background-size: 33.4%;}
+body, html{font-family: 'Trocchi_ulregular', serif;background-color:#EEE;font-weight:normal;color:#000;background-image: url("assets/marble.jpg");background-size: 33.4%;}
 p, h1, h2, h3, h4, h5, h6{line-height: 1.4em;}
 p {font-size:14px;line-height:1.4em}
 /*navbar*/
@@ -64,3 +64,17 @@ ul.navbar-right>li>a{color:#000!important;}
 /*bbPress forums*/  
 .home #bbp-search-form{display:none;}
 #bbpress-forums{font-family:'Arial', sans-serif}
+
+
+@media (max-width: 767px) {
+  body, html{background-size: 100%;}
+  #navbar-menu{display:none;}
+  #menu-user-menu{position:absolute;top:15px;right:20px;}
+  .navbar-header{padding-left:15px;}
+  .ulhq-logo{position:absolute;margin-top:-20px;}
+  #menu-user-menu .dropdown-menu{margin-top:-50px;}
+  li.dropdown.open{background-color:#000;}
+  .navbar-nav .open .dropdown-menu>li>a{color:white!important;padding-left:0}
+  .navbar-nav .open .navbar-username{display:inline;}
+  .navbar-username{display:none}
+}

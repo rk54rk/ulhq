@@ -23,7 +23,7 @@ require_once(dirname(__FILE__).'/tcpdf_min/tcpdf.php');
 // set page format
 $pageOrientation = 'l'; //landscapee
 $pageSize = array(297, 210);
-$pageMargin = array(5, 5, 5, 5);
+$pageMargin = array(20, 20, 20, 20);
 
 // create new PDF document
 $pdf = new TCPDF($pageOrientation, 'mm', $pageSize, true, 'UTF-8', false);
@@ -74,47 +74,46 @@ $pdf->SetAutoPageBreak($auto_page_break, $bMargin);
 // set the starting point for the page content
 $pdf->setPageMark();
 
-// set font
-$pdf->SetFont('trocchi', '', 12);
-
-// Write the shareholder details
-$html = 
-    '<div style="text-align:center">THIS CERTIFICATES<br><br>'
-    .$title.' '.$current_user->display_name.'<br><br>'
-    .$address.'<br><br>'
-    .'OWNS EXACT ONE SHARE OF<br>THE UNLIMITED LIMITED.<><br></div>';
-
-// set color for text #444
-$pdf->SetTextColor(68, 68, 68);
-
-//w, h, x, y, html
-$pdf->writeHTMLCell(99, '', 99, 75, $html, 0, 0, 0, true, 'J', true);
-
-// Write the certificate ID
-$html = '<div style="text-align:center">NUMBER<br>'.bp_loggedin_user_id().'</div>';
-
-// set color for text #444
-$pdf->SetTextColor(68, 68, 68);
-
-//w, h, x, y, html
-$pdf->writeHTMLCell(25, 25, 25, 173, $html, 0, 0, 0, true, 'J', true);
-
-
-
-// Render QR code
+// Generate QR code
 require_once(dirname(__FILE__).'/tcpdf_min/tcpdf_barcodes_2d.php');
 
 $style = array(
 	'border' => false,
-	'vpadding' => 5,
-	'hpadding' => 5,
-	'fgcolor' => array(68,68,68),
-	'bgcolor' => array(255,255,255), //array(255,255,255)
+	'vpadding' => 2,
+	'hpadding' => 2,
+	'fgcolor' => array(0,0,0),
 	'module_width' => 1, // width of a single module in points
 	'module_height' => 1 // height of a single module in points
 );
 
-$pdf->write2DBarcode( bp_loggedin_user_domain() , 'QRCODE,Q', 65, 170, 25, 25, $style, 'H');
+$pdf->write2DBarcode( bp_loggedin_user_domain() , 'QRCODE,Q', 20, 130, 25, 25, $style, 'H');
+
+// set the barcode content and type
+$barcodeobj = new TCPDF2DBarcode( bp_loggedin_user_domain() , 'QRCODE,Q');
+
+// output the barcode as SVG inline code
+$barcodeoutput = $barcodeobj->getBarcodeHTML(6, 6, 'black');
+
+// set font
+$pdf->SetFont('trocchiul', '', 18);
+
+// Write the shareholder details
+$html = 
+    '<div style="text-align:left;font-size:18pt;">This is to certify that<br>'
+    .$title.' '.$current_user->display_name.'<br>'
+    .$address.'<br>'
+    .'owns exact one share of<br>the Unlimited Limited.</div>'
+    .'<div style="text-align:left;font-size:10pt;">Unlimited Limited<br>'
+    .'shareholder certificate no.'.bp_loggedin_user_id().'<br>'
+    .bp_loggedin_user_domain().'</div>';
+// set color for text #444
+$pdf->SetTextColor(0, 0, 0);
+
+//w, h, x, y, html
+$pdf->writeHTMLCell(99, '', 20, 20, $html, 0, 0, 0, true, 'J', true);
+
+
+
 
 //Close and output PDF document
 $pdf->Output('ul_share-certificate_id'.bp_loggedin_user_id().'.pdf', 'I');
