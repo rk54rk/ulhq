@@ -10,3 +10,15 @@
 
 }
 
+@font-face {
+    font-family: 'texgyreherosbold';
+    src: url('texgyreheros-bold-webfont.eot');
+    src: url('texgyreheros-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('texgyreheros-bold-webfont.woff2') format('woff2'),
+         url('texgyreheros-bold-webfont.woff') format('woff'),
+         url('texgyreheros-bold-webfont.ttf') format('truetype'),
+         url('texgyreheros-bold-webfont.svg#texgyreherosbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+
+}

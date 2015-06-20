@@ -38,12 +38,12 @@ get_header(); ?>
         
         <div class="col-sm-4 col-sm-offset-2" style="text-align:left">
             <p>
-                <a target='_blank' href="<?php bloginfo('template_directory'); ?>/parts/ul-pdf/ul_share_certificate.php">
-                    <i class="icon-award" style="margin-left:-2px"></i>Download share certificate</a><br>
-                <a target='_blank' href="<?php bloginfo('template_directory'); ?>/parts/ul-pdf/ul_business_card.php">
-                    <i class="icon-vcard" style="margin-left:-2px"></i>Download my business card</a><br>
-                <a target='_blank' href="">
-                    <i class="icon-doc-text" style="margin-left:-2px"></i>Download letterhead
+                <a target='_blank' href="<?php echo site_url( '/certificate', 'http' ); ?>">
+                    <i class="icon-award" style="margin-left:-2px"></i>My share certificate</a><br>
+                <a target='_blank' href="<?php echo site_url( '/businesscard', 'http' ); ?>">
+                    <i class="icon-vcard" style="margin-left:-2px"></i>My business card</a><br>
+                <a target='_blank' href="<?php echo site_url( '/letterhead', 'http' ); ?>">
+                    <i class="icon-doc-text" style="margin-left:-2px"></i>My letterhead
                 </a>
             </p>
             
